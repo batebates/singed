@@ -1,11 +1,18 @@
-JavaScript: true
-Ruby: true
-Python: false
-PHP: false
+engines:
+  rubocop:
+    enabled: true
+    checks:
+      Rubocop/Metrics/ParameterLists:
+        enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
 ratings:
   paths:
   - src/**
   - "**.rb"
 exclude_paths:
-- test/**/*
-- vendor/**/*
+  - rbunits/*
+- ressources/**
