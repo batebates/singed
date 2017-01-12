@@ -2,7 +2,10 @@ JavaScript: true
 Ruby: true
 Python: false
 PHP: false
-
+ratings:
+  paths:
+  - src/**
+  - "**.rb"
 exclude_paths:
 - test/**/*
 - vendor/**/*
