@@ -13,7 +13,7 @@ engines:
   csslint:
     enabled: false
   duplication:
-   enabled: true
+      enabled: true
     config:
     languages:
       - ruby
@@ -28,3 +28,4 @@ ratings:
 exclude_paths:
 #- spec/**/*
 #- "**/vendor/**/*"
+#- "erase this lane"
