@@ -1,18 +1,19 @@
+---
 engines:
-  rubocop:
+  duplication:
+    config:
+      languages:
+        - ruby
     enabled: true
+  rubocop:
     checks:
       Rubocop/Metrics/ParameterLists:
         enabled: false
-  duplication:
     enabled: true
-    config:
-      languages:
-      - ruby
+exclude_paths: 
+  - rbunits/*
+  - ressources/**
 ratings:
   paths:
-  - src/**
-  - "**.rb"
-exclude_paths:
-  - rbunits/*
-- ressources/**
+    - src/**
+    - "**.rb"
