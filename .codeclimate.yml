@@ -10,10 +10,10 @@ engines:
       Rubocop/Metrics/ParameterLists:
         enabled: false
     enabled: true
-exclude_paths: 
+exclude_paths:
   - rbunits/*
   - ressources/**
 ratings:
   paths:
-    - src/**
+    - class/**
     - "**.rb"
