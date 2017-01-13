@@ -9,7 +9,7 @@ engines:
     checks:
       Rubocop/Metrics/ParameterLists:
         enabled: false
-    enabled: true
+    enabled: false
 exclude_paths:
   - rbunits/*
   - ressources/**
