@@ -14,7 +14,7 @@ class Features
 
   #===========================
   #== Variables d'instance ==
-  @features
+  #@features
   #===========================
   private_class_method :new
 
@@ -26,5 +26,21 @@ class Features
     new()
   end
 
-  
+  #===Add a value to a features
+  #
+  #===Paramètres :
+  #* <b>key</b> : ability name will be increase
+  #* <b>value</b> : value to add
+  def sum(key,value)
+    @features[key] += value
+  end
+
+  #===Mult a value to a features
+  #
+  #===Paramètres :
+  #* <b>key</b> : ability name will be increase
+  #* <b>value</b> : value to multiplicate
+  def product(key,value)
+    @features[key] *= value
+  end
 end
