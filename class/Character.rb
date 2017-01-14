@@ -10,17 +10,22 @@
 #<b>Liste des méthodes
 #*
 #</b>
+require "./Feature.rb"
 class Character
   #== Variable de classe ==
-  @@featuresByLvl
+  @@featuresByLvl = Feature.creer(82,45,0,0,3.5,1.25)
   #===========================
   #== Variables d'instance ==
   @lvl
+  @featuresFinal
   #===========================
 
   private_class_method :new
 
   def initialize(lvl)#:nodoc:
+    @lvl = lvl
+    #initialise with feature lvl 1
+    @featuresFinal = Feature.creer(542.76,290.6,345,0,27.88,32.1)
   end
   def Character.creer(lvl)
     new(lvl)

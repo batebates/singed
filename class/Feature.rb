@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 #<b>Auteur  :</b> Decrand Baptiste
 #
 #<b>Version :</b> 1.0
@@ -11,36 +10,58 @@
 #</b>
 class Features
   #== Variable de classe ==
-
   #===========================
   #== Variables d'instance ==
   #@features
   #===========================
   private_class_method :new
 
-  def initialize()#:nodoc:
-    @features = {:health => 0,:mana => 0,:moveSpeed => 0,:abilityPower => 0}
+  def initialize(h,m,ms,ap,arm,mr)#:nodoc:
+    @features = {:health => h,:mana => m,:moveSpeed => ms,:abilityPower => ap,:armor => arm,:magicResist => mr}
 
   end
-  def Features.creer()
-    new()
+  def Features.creer(h,m,ms,ap,arm,mr)
+    new(h,m,ms,ap,arm,mr)
   end
 
-  #===Add a value to a features
+  #===Add features to instance features
   #
   #===Paramètres :
-  #* <b>key</b> : ability name will be increase
-  #* <b>value</b> : value to add
-  def sum(key,value)
-    @features[key] += value
+  #* <b>f2</b> : features will be add to instance features
+  def sum(f2)
+    f2.each do |key,value|
+      @features[key] += value
+      if(key == :mana)
+        @features[:health] += value *0.25
+      end
+    end
   end
 
-  #===Mult a value to a features
+  #===Mult instance feature by a foctor
   #
   #===Paramètres :
-  #* <b>key</b> : ability name will be increase
-  #* <b>value</b> : value to multiplicate
-  def product(key,value)
-    @features[key] *= value
+  #* <b>factor</b> :
+  def product(factor)
+    @features.each do |key,value|
+      @features[key] = value * factor
+      if(key == :mana)
+        @features[:health] += value * (factor) * 0.25
+      end
+    end
   end
+
+  #===Print feature
+  #
+  #===Paramètres :
+  def to_s()
+    @features.each do |key,value|
+      print "#{key} = #{value}\n"
+    end
+  end
+
 end
+
+f1 = Features.creer(10,20,30,40,50,60)
+f2 = Features.creer(1,1,1,1,1,1)
+f3 = f1.sum(f2)
+print "#{f3}"
